@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: #b47b3b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  height: 60px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 2rem;
+  flex: 1;
+  letter-spacing: 1px;
+}
+.navbar-logo a {
+  color: #fff;
+  text-decoration: none;
+}
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin-right: 2rem;
+  padding: 0;
+}
+.navbar-links li {
+  margin-left: 1.5rem;
+}
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+.navbar-links a:hover {
+  color: #f4eee6;
+}
+.navbar-toggle {
+  display: none;
+}
+.navbar-icon {
+  display: none;
+}
+
+/* Responsive Navbar */
+@media (max-width: 700px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background: #b47b3b;
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    margin: 0;
+    padding: 0 0 1rem 0;
+  }
+  .navbar-links li {
+    margin: 1rem 0 1rem 2rem;
+  }
+  .navbar-toggle:checked ~ .navbar-links {
+    display: flex;
+  }
+  .navbar-icon {
+    display: block;
+    font-size: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+}
+
+/* Sayfa */
+.gallery-page {
+  max-width: 1200px;
+  margin: 90px auto 2rem auto;
+  padding: 2rem 1rem;
+}
+.gallery-title {
+  font-size: 2.1rem;
+  color: #b47b3b;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  justify-content: center;
+}
+.category-filter select {
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #b47b3b;
+  background: #f4eee6;
+  color: #333;
+  outline: none;
+}
+
+/* Galeri grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  justify-items: start;
+  justify-content: start;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Responsive ayar: Mobilde 2 veya 1 sütun */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    max-width: 98vw;
+  }
+}
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    max-width: 98vw;
+  }
+}
+@media (max-width: 400px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+}
+
+/* Kartlar */
+.gallery-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(180,123,59,0.08);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.18s, transform 0.18s;
+  cursor: pointer;
+  padding: 1rem;
+  min-height: 220px;
+  max-width: 210px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.gallery-card:hover {
+  box-shadow: 0 4px 24px rgba(180,123,59,0.18);
+  transform: translateY(-4px) scale(1.02);
+}
+.gallery-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  border: 2px solid #b47b3b;
+  box-shadow: 0 2px 8px rgba(100,100,100,0.12);
+}
+.gallery-card-title {
+  font-size: 1.15rem;
+  color: #b47b3b;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Kategori yoksa bilgi kutusu ortada ve dar olsun */
+.gallery-grid > div {
+  max-width: 210px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(180,123,59,0.08);
+}
+
+/* Mobilde daha küçük kart */
+@media (max-width: 600px) {
+  .gallery-title {
+    font-size: 1.4rem;
+  }
+  .gallery-card {
+    min-height: 140px;
+    max-width: 120px;
+    padding: 0.7rem;
+  }
+  .gallery-card img {
+    width: 100px;
+    height: 100px;
+  }
+  .gallery-grid > div {
+    max-width: 120px;
+    padding: 1.5rem 0.7rem;
+  }
+}
